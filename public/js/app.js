@@ -6,6 +6,7 @@ const messageOne = document.getElementById('message-1');
 const messageTwo = document.getElementById('message-2');
 const messageThree = document.getElementById('message-3');
 const messageFour = document.getElementById('message-4');
+const messageFive = document.getElementById('message-5');
 
 weatherForm.addEventListener('submit', (e) =>{
     e.preventDefault();
@@ -18,6 +19,7 @@ weatherForm.addEventListener('submit', (e) =>{
     messageTwo.textContent = '';
     messageThree.textContent = '';
     messageFour.textContent = '';
+    messageFive.textContent = '';
 
     fetch(url).then((response) => {
         response.json().then((data) => {
@@ -27,8 +29,9 @@ weatherForm.addEventListener('submit', (e) =>{
     
             messageOne.textContent = data.location;
             messageTwo.textContent = data.forecast;
-            messageThree.textContent = 'Max temperature: ' + data.maxTemperature; + 'º';
-            messageFour.textContent = 'Min temperature: ' + data.minTemperature; + 'º';
+            messageThree.textContent = data.chanceOfRain;
+            messageFour.textContent = 'Max temperature: ' + data.maxTemperature + 'º';
+            messageFive.textContent = 'Min temperature: ' + data.minTemperature + 'º';
 
         });
     });

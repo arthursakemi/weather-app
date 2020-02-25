@@ -62,6 +62,7 @@ app.get('/weather', (req, res) => {
 
             res.send({
                 forecast: forecastData.forecast,
+                chanceOfRain: forecastData.chanceOfRain,
                 minTemperature: forecastData.minTemperature,
                 maxTemperature: forecastData.maxTemperature,
                 location,
